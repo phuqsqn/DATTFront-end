@@ -1,0 +1,17 @@
+.Sumproducts{
+    width: 99%;
+    padding:7px;
+}
+.item_product{
+    display: flex;
+}
+.item{
+    width: 200px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+.item h4{
+    width: 200px;
+}

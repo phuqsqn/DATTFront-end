@@ -1,0 +1,112 @@
+.sumtable{
+    width: 100%;
+    margin-left: 10px;
+    padding: 0px;
+}
+.menucreat{
+    background-color: rgb(98, 47, 112);
+    height: 25px;
+    width: 98.7%;
+    padding-top: 10px;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+.menucreat label{
+    padding-right: 120px;
+    margin-left: 20px;
+    text-align: center;
+}
+.tablemenu{
+    width: 98.6%;
+    display: flex;
+    height: 30px;
+    border: 1px solid rgb(194, 189, 189);
+    padding-top: 5px;
+}
+.itemAc1{
+    width: 150px;
+    padding-left: 10px;
+    margin-right: 10px;
+
+}
+.itemAc2 , .itemAc3{
+    width: 185px;
+    padding-left: 5px;
+    margin-right: 10px;
+    height: 30px;
+}
+.itemAc4 {
+    width: 155px;
+    padding-left: 5px;
+    margin-right: 10px;
+}
+.itemAc5{
+    width: 210px;
+    padding-left: 5px;
+    margin-right: 10px;
+}
+.itemAc6{
+    width: 160px;
+    padding-left: 5px;
+    margin-right: 10px;
+ 
+}
+h4{
+    width: 100px;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    margin-top: 15px ;
+}
+.Creataccounts{
+    text-decoration: none;
+    color: purple;
+    font-weight: bold;
+     border: 1px solid purple;
+     padding: 3px;
+     border-radius: 5px;
+}
+.Creataccounts:hover{
+    background-color: purple;
+    color: white;
+}
+.link2{
+    margin-top: 20px;
+}
+.formedit{
+  margin: 0px auto;
+  width: 360px;
+  height: 400px;
+}
+.Boxname{
+    margin: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: red;
+}
+.inpedit{
+    margin: 10px;
+    width: 330px;
+    height: 22px;
+    border: none;
+    box-shadow: 0px 0px 1px rgb(229, 31, 255);
+    border-radius: 3px;
+    padding: 5px;
+}
+.submitedit{
+    width: 100px;
+    margin: 10px;
+    height: 25px;
+    border: none;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+}
+.slog{
+    text-align: center;
+}
+.dis{
+    margin: 0px;
+    margin-bottom: 5px;
+    color: white;
+    text-shadow: 0px 0px 8px purple;
+}
