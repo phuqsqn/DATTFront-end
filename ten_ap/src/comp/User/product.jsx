@@ -23,7 +23,7 @@ const UserProducts = () => {
         })
     }
     useEffect(() => {
-        httpService.get("/api/products/", {})
+        httpService.get("/api/products/product-hot", {})
             .then((data) => {
                 setProduct(data.data)
             })
@@ -35,12 +35,12 @@ const UserProducts = () => {
                 <div className="item_product">
                     {product.map((item) => (
                         <div className="item" key={item._id}>
-                            <h4>{item.name}</h4>
-                            <h4> <img className="categoryimg" src={item.img} alt=""
+                            <h3>{item.name}</h3>
+                            <h4> <img className="productimg" src={item.img} alt=""
                             /></h4>
-                            <h4>{item.price}</h4>
-                            <h4>{item.description}</h4>
-                            <button onClick={() => handleAddToCart(item)}>add Cart</button>
+                            <h2>{item.price}</h2>
+                            <h5 className="quantity">{item.description}</h5>
+                            <button className="add_cart" onClick={() => handleAddToCart(item)}>+ Add Cart</button>
                         </div>
                     ))}
                 </div>

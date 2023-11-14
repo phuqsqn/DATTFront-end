@@ -19,12 +19,14 @@ const Register2 = () => {
       .post("/api/auth/register", {
         body: { username, password, fullname, dob, phone },
       })
-      .then((data) => {
+      .then(data => {
         navigate('/Login');
-        toast("Đăng Ký Thành Công");
+        toast.success("Đăng Ký Thành Công");
+       console.log(data)
+
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        console.log(error.response.data.message);
       });
       
   };
@@ -47,7 +49,9 @@ const Register2 = () => {
             placeholder="Enter your username"
            
           />
+          
         </div>
+        
 
         <div className="form__iteam">
           <label>Password :</label><br />

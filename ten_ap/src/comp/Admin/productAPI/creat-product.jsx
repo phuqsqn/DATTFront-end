@@ -19,8 +19,6 @@ const CreateProduct = () => {
   } = useForm({ criteriaMode: "all" });
 
   const onSubmit = (data) => {
-    console.log(data)
-    console.log(categoryId)
     httpService.post(`/api/products/${categoryId}`, { body: data }).then(data => console.log(data))
   }
   return (

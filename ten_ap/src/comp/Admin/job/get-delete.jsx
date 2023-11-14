@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import httpService from "../../service/http.service";
 import { Link } from "react-router-dom";
+import "./job.css"
+import Sweetpagination from "sweetpagination";
 
 
 const HomeJob = () => {
@@ -11,6 +13,7 @@ const HomeJob = () => {
   const [isReload, setIsReload] = useState(false)
   const [textSeach, setTextSeach] = useState("");
   const [Alljobs, setAllJobs] = useState([]);
+  const [currentPageData, setCurrentPageData] = useState([]); //1
   const deleteJob = async (id) => {
     const response = await httpService.delete(
       `/api/jobs/${id}`
@@ -76,26 +79,42 @@ const HomeJob = () => {
           </label>
         </div>
         <div className="">
-          {Alljobs &&
-            Alljobs.length > 0 &&
-            Alljobs.map((item) => (
+          {currentPageData &&
+            currentPageData.length > 0 &&
+            currentPageData.map((item) => (
               <div className="Sum_product" key={item._id}>
-                <div className="product_item">
+                <div className="job_item">
                   <h4>{item.name}</h4>
                 </div>
-                <div className="product_item">
+                <div className="job_item">
                   <h4>{item.detail}</h4>
                 </div>
-                <div className="product_item">
+                <div className="job_item">
                   <h4>{item.status}</h4>
                 </div>
                 <div>
-                  <button onClick={() => handledeleteJobs(item._id)}> Delete</button>
+                  <button className="deljob" onClick={() => handledeleteJobs(item._id)}>
+                  <img
+              width={"7"}
+              src="https://banner2.cleanpng.com/20190725/pwz/kisspng-calculate-icon-delete-icon-multiplication-icon-5d3a46888531f0.7270433015641002325456.jpg"
+              alt=""
+            />
+                  </button>
                 </div>
               </div>
             ))}
+            <br></br>
         </div>
-        <Link to="/CreateJobs">Creat Job</Link>
+        <Link className="Creatjob" to="/Createjobs">Creat Job</Link>
+        <div>
+        <Sweetpagination
+            currentPageData={setCurrentPageData}
+            getData={Alljobs}
+            dataPerPage={5}
+            navigation={true}
+            getStyle={"style-1"}
+          />
+        </div>
       </div>
     </>
   );

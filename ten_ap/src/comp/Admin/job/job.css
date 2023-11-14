@@ -1,0 +1,20 @@
+
+.Creatjob{
+    text-decoration: none;
+    color: purple;
+    font-weight: bold;
+     border: 1px solid purple;
+     padding: 3px;
+     border-radius: 5px;
+     margin: 10px;
+}
+.deljob{
+    text-align: center;
+    position: absolute;
+    right: 100px;
+    margin-top: 4px;
+    border-radius: 100px;
+}
+.job_item{
+    width: 237px;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import httpService from "../service/http.service";
 import { toast } from "react-toastify";
 import { set } from "react-hook-form";
+import './cart.css';
 
 const CartUse = () => {
     const [products, setProducts] = useState([]);
@@ -38,25 +39,27 @@ const CartUse = () => {
     return (
         <>
 
-            <div>
+            <div className="sum_cart">
                 {products && products.length > 0 && (
-                    <div className="item_product">
+                    <div className="item_cart">
                         {products.map((item) => (
-                            <div className="item" key={item._id}>
+                            <div className="product_cart" key={item._id}>
                                 <h4>{item.product.name}</h4>
-                                <h4> <img className="categoryimg" src={item.product.img} alt=""
-                                /></h4>
+                                <img className="img_cart" src={item.product.img} alt=""
+                                />
                                 <h4>{item.product.price}</h4>
                                 <h4>{item.quantity}</h4>
-                                <button onClick={() => handleDeleteProducts(item.product._id)}>Delete</button>
+                                <button className="add_cart" onClick={() => handleDeleteProducts(item.product._id)}>Delete</button>
+                            
                             </div>
                         ))}
+                        <h4>Tổng Sản Phẩm: {totalProducts}</h4>
+                        <button>Thanh Toán</button>
                     </div>
                 )}
             </div>
             <div>
-                <h4>{totalProducts}</h4>
-                <button>Thanh Toán</button>
+                
             </div>
         </>
     )

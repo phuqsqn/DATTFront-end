@@ -27,9 +27,11 @@ import Abc from "./comp/Admin/productAPI/creat-product";
 import HomeJob from "./comp/Admin/job/get-delete";
 import storageService from "./comp/service/storage.service";
 import CreateProduct from "./comp/Admin/productAPI/creat-product";
-import createJob from './comp/Admin/job/creatJobs';
+
 import CreateJobs from "./comp/Admin/job/creatJobs";
 import CartUse from "./comp/User/cart";
+import Comment from "./comp/Admin/comment/get-comment.jsx";
+import ProductIteam from "./comp/User/product_item.jsx";
 
 const store = createStore(allReducers);
 // Change -> update
@@ -99,6 +101,7 @@ function App() {
               <Route path="/Admin/accounts" index element={<HomeAccount />} />
               <Route path="/Admin/product" index element={<HomeProduct />} />
               <Route path="/Admin/job" index element={<HomeJob />} />
+              <Route path="/Admin/comments" index element={<Comment />} />
               <Route
                 path="/Admin/categories"
                 index
@@ -118,12 +121,16 @@ function App() {
               element={<CreateCT onSubmit={handleCreatCT} data={itemEdit} />}
             />
              <Route
-              path="/CreateJobs"
+              path="/CreatJob"
               element={<CreateJobs onSubmit={handleCreat} data={itemEdit} />}
             />
              <Route
               path="/cart"
               element={<CartUse/>}
+            />
+            <Route
+              path="/Product"
+              element={<ProductIteam/>}
             />
           </Routes>
         </BrowserRouter>

@@ -10,6 +10,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Sweetpagination from "sweetpagination";
 
 const style = {
   position: "absolute",
@@ -25,9 +26,10 @@ const style = {
 
 const HomeAccount = () => {
   const navagite = useNavigate();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [isReload, setIsReload] = useState(false);
   const [itemEdit, setItemEdit] = useState(null);
+  const [currentPageData, setCurrentPageData] = useState([]); //1
   // edit
   const [open, setOpen] = React.useState(false);
   const handleOpen = (item) => {
@@ -114,9 +116,9 @@ const HomeAccount = () => {
           <label htmlFor="">PHONE NUMBER</label>
           <label htmlFor="">SETTINGS</label>
         </div>
-        {data && data.length > 0 && (
+        {currentPageData && currentPageData.length > 0 && (
           <div>
-            {data.map((item) => (
+            {currentPageData.map((item) => (
               <div className="tablemenu">
                 <div className="itemAc1">
                   <h4>{item.id}</h4>
@@ -135,11 +137,16 @@ const HomeAccount = () => {
                 </div>
                 <div className="itemAc6">
                   <button
+                  className="delaccount"
                     onClick={() => {
                       handledeleteData(item._id);
                     }}
                   >
-                    Delete
+                   <img
+              width={"7"}
+              src="https://banner2.cleanpng.com/20190725/pwz/kisspng-calculate-icon-delete-icon-multiplication-icon-5d3a46888531f0.7270433015641002325456.jpg"
+              alt=""
+            />
                   </button>
                   <button
                     onClick={() => {
@@ -154,9 +161,20 @@ const HomeAccount = () => {
               </div>
             ))}
           </div>
+          
         )}
         <div className="link2">
           <Link className="Creataccounts" to="/CreatAccounts">Creat Account</Link>
+          
+        </div>
+        <div>
+        <Sweetpagination
+            currentPageData={setCurrentPageData}
+            getData={data}
+            dataPerPage={5}
+            navigation={true}
+            getStyle={"style-1"}
+          />
         </div>
       </div>
     </>

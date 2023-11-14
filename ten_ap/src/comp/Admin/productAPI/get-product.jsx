@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import httpService from "../../service/http.service";
 import "./product.css";
 import { Link, useNavigate } from "react-router-dom";
+import Sweetpagination from "sweetpagination";
 
 const HomeProduct = () => {
   const navagite = useNavigate();
@@ -12,6 +13,7 @@ const HomeProduct = () => {
   const [productAll, setProductALl] = useState([]);
   const [textSeach, setTextSeach] = useState("");
   const [productAllfilter, setProductALlfilter] = useState([]);
+  const [currentPageData, setCurrentPageData] = useState([]); //1
   const deleteProduct = async (id) => { 
     const response = await httpService.delete(
       `/api/products/${id}`
@@ -76,15 +78,17 @@ const HomeProduct = () => {
           </label>
         </div>
         <div className="">
-          {productAllfilter &&
-            productAllfilter.length > 0 &&
-            productAllfilter.map((item) => (
+          {currentPageData &&
+            currentPageData.length > 0 &&
+            currentPageData.map((item) => (
               <div className="Sum_product" key={item._id}>
                 <div className="product_item">
                   <h4>{item.name}</h4>
                 </div>
                 <div className="product_item">
-                  <h4>{item.img}</h4>
+                <img className="categoryimg" src={item.img} alt=""
+
+/>
                 </div>
                 <div className="product_item">
                   <h4>{item.price}</h4>
@@ -93,13 +97,27 @@ const HomeProduct = () => {
                   <h4>{item.description}</h4>
                 </div>
                 <div className="product_item">
-                  <button onClick={() => handledeleteproduct(item._id)}> Delete</button>
+                  <button className="delproduct" onClick={() => handledeleteproduct(item._id)}> <img
+              width={"7"}
+              src="https://banner2.cleanpng.com/20190725/pwz/kisspng-calculate-icon-delete-icon-multiplication-icon-5d3a46888531f0.7270433015641002325456.jpg"
+              alt=""
+            /></button>
                 </div>
               </div>
             ))}
         </div>
         <div>
-        <Link  to="/CreateProducts">Creat Product</Link>
+        <br></br>
+        <Link className="creatProduct"  to="/CreateProducts">Creat Product</Link>
+        <div>
+        <Sweetpagination
+            currentPageData={setCurrentPageData}
+            getData={productAllfilter}
+            dataPerPage={5}
+            navigation={true}
+            getStyle={"style-1"}
+          />
+        </div>
         </div>
       </div>
     </>

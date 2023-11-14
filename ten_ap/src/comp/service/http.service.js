@@ -1,5 +1,6 @@
 import axios from "axios";
 import storageService from "./storage.service";
+import { toast } from "react-toastify";
 
 const baseURL = "http://localhost:5000/"
 class HttpService {
@@ -10,6 +11,10 @@ class HttpService {
       window.location = "/login"
 
     }
+    // if(error.response)
+    // console.log(error?.response)
+    // console.log(error?.response?.data)
+    toast.error(error?.response?.data?.message)
   }
   async get( uri, options = { headers: {}, params: {}, body: {} } ) {
     try {

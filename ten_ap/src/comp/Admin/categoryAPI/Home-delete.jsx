@@ -119,9 +119,9 @@ const HomeCategory = () => {
         </Fade>
       </Modal>
       <div className="sumtable">
-        <div className="menucreat">
-          <label className="cate" htmlFor="">NAME</label>
-          <label className="cate" htmlFor="">IMAGE</label>
+        <div className="category_detail">
+          <label className="cate1"  htmlFor="">NAME</label>
+          <label className="cate2" htmlFor="">IMAGE</label>
         </div>
         {data && data.length > 0 && (
           <div className="HelloCate">
@@ -155,7 +155,8 @@ const HomeCategory = () => {
 
       </div>
       <div>
-        <Link to="/CreatCategories">Creat Category</Link>
+      <br></br>
+        <Link className="CreatCate" to="/CreatCategories">Creat Category</Link>
       </div>
     </>
   );

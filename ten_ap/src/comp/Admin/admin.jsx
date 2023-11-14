@@ -29,19 +29,21 @@ const Admin = () => {
       <div className="SumPj">
         <div className="Sum__left">
           <div className="left__top">
-            {" "}
-            <img
+          <Link to="/"> <img
               width={"280px"}
               src="https://goldidea.vn/upload/123/thiet-ke-logo-the-face-shop.png"
               alt=""
-            />
+            /></Link>
           </div>
           <div className="left__bottom">
             <div className="menu_left">
-              <img src="https://cdn2.iconfinder.com/data/icons/speech-bubbles-filled/48/Dots_Bubble_Filled-512.png" alt="" /> <h2>Comment</h2>
+              <img src="https://cdn2.iconfinder.com/data/icons/speech-bubbles-filled/48/Dots_Bubble_Filled-512.png" alt="" /> 
+              <h2><Link className="LinkAdmin" to="/Admin/comments">Comment</Link></h2>
             </div>
+
             <div className="menu_left">
-              <img src="https://th.bing.com/th/id/R.f91b60a4cbe2fa5fb7c8711e33ceacee?rik=QcHmCIK%2bui2sbg&pid=ImgRaw&r=0" alt="" /> <h2><Link className="LinkAdmin" to="/Admin/job">Job Accounts</Link></h2>
+              <img src="https://th.bing.com/th/id/R.f91b60a4cbe2fa5fb7c8711e33ceacee?rik=QcHmCIK%2bui2sbg&pid=ImgRaw&r=0" alt="" /> 
+              <h2><Link className="LinkAdmin" to="/Admin/job">Job Accounts</Link></h2>
             </div>
             <div className="menu_left">
 

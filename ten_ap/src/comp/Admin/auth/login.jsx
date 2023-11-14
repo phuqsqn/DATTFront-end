@@ -18,9 +18,7 @@ const LoginCT = () => {
         toast.info("Bạn Đang Đăng Nhập")
         isShowMessage = true
       }
-    
       navagite('/')
-
     }
     
   },[])
@@ -32,23 +30,25 @@ const LoginCT = () => {
       .post("/api/auth/login", {
         body: { username, password },
       })
-      .then((data) => {
+      .then(data => {
         // Store data login
         storageService.set("access_token", data?.data?.jwt);
         storageService.set("role", data?.data?.role);
-        toast("Đăng Nhập Thành Công")
+      
 
         // Sau khi login navigate ...
         if (data.data.role === "admin") {
           // navigate tới trang admin
           navagite("/Admin");
+          toast.success("Đăng Nhập Thành Công")
         } else {
           // navigate tới trang user
           navagite("/");
+          toast.success("Đăng Nhập Thành Công")
         }
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        toast.error(error?.response?.data?.message);
       });
   };
 
