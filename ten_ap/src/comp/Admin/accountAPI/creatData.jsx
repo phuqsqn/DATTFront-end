@@ -22,7 +22,7 @@ const CreateData = (props) => {
 
   const onSubmit = (data) => {
     props.onSubmit(data);
-    navigate('/HomeAccount')
+    navigate('/Admin/accounts')
   };
 
   return (
@@ -47,7 +47,7 @@ const CreateData = (props) => {
           <br />
           <input
             placeholder="Enter your password"
-            type="text"
+            type="password"
             defaultValue={props.data?.password}
             {...register("password", {
               required: true,

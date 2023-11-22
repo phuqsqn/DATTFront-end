@@ -63,7 +63,7 @@ const User = () => {
                             <li>TRANG CHỦ</li>
                             <li><Link to="/product">SẢN PHẨM</Link></li>
                             <li>TIN TỨC</li>
-                            <li>LIÊN HỆ</li>
+                            <li>THỐNG KÊ</li>
                         </ul>
                         <Link className="cart" to = '/cart'><img 
               width={"50px"}

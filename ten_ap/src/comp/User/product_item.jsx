@@ -10,6 +10,8 @@ import { useNavigate } from "react-router";
 
 import { Link } from "react-router-dom";
 import ZoomSlideshow from "./slider/ZoomEffectSlider";
+import iteamProducts from './product-productIteam';
+import UseProducts from "./product-productIteam";
 
 ///fillter product
 
@@ -18,6 +20,20 @@ const ProductIteam = () => {
   const [category, setCategory] = useState([]);
   const [productfilter, setProductfilter] = useState([]);
   const [currentCategory, setCurrentCategory] = useState(null);
+  const [productAll, setProductALl] = useState([]);
+  const [textSeach, setTextSeach] = useState("");
+  const [isReload, setIsReload] = useState(false)
+
+
+  useEffect(() => {
+    let newArray = [];
+    for (let item of productAll) {
+      if (item.name.toLowerCase().includes(textSeach.toLowerCase())) {
+        newArray.push(item)
+      }
+    }
+    setProductfilter(newArray)
+  }, [textSeach])
 
 
   useEffect(() => {
@@ -41,7 +57,7 @@ const ProductIteam = () => {
     httpService.get("/api/products/", {})
       .then((data) => {
         setProduct(data.data)
-        console.log(data.data)
+        setProductALl(data.data)
       })
   }, [])
 
@@ -91,12 +107,18 @@ const ProductIteam = () => {
           <li>TIN TỨC</li>
           <li>LIÊN HỆ</li>
         </ul>
+        <input className="sreach_product" type="text" placeholder="Tìm kiếm sản phẩm...." onChange={(e) => setTextSeach(e.target.value)} />
         <Link className="cart" to='/cart'><img
           width={"50px"}
           height={"50px"}
           src="https://cdn.pixabay.com/photo/2017/03/29/04/09/shopping-icon-2184065_1280.png"
           alt=""
         /></Link>
+      </div>
+      <div className="product_hot">
+        <div className="product_hot_item">
+        {<UseProducts />}
+        </div>
       </div>
       <div className="detail_index">
         <div className="left_product">

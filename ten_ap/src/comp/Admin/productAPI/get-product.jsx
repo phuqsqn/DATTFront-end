@@ -14,7 +14,7 @@ const HomeProduct = () => {
   const [textSeach, setTextSeach] = useState("");
   const [productAllfilter, setProductALlfilter] = useState([]);
   const [currentPageData, setCurrentPageData] = useState([]); //1
-  const deleteProduct = async (id) => { 
+  const deleteProduct = async (id) => {
     const response = await httpService.delete(
       `/api/products/${id}`
     )
@@ -50,7 +50,7 @@ const HomeProduct = () => {
   //     });
   // }, [isReload]);
   useEffect(() => {
-    if (category !== null) { 
+    if (category !== null) {
       httpService
         .get(`/api/products/${category}`)
         .then((data) => setProduct(data.data));
@@ -86,9 +86,9 @@ const HomeProduct = () => {
                   <h4>{item.name}</h4>
                 </div>
                 <div className="product_item">
-                <img className="categoryimg" src={item.img} alt=""
+                  <img className="categoryimg" src={item.img} alt=""
 
-/>
+                  />
                 </div>
                 <div className="product_item">
                   <h4>{item.price}</h4>
@@ -98,26 +98,26 @@ const HomeProduct = () => {
                 </div>
                 <div className="product_item">
                   <button className="delproduct" onClick={() => handledeleteproduct(item._id)}> <img
-              width={"7"}
-              src="https://banner2.cleanpng.com/20190725/pwz/kisspng-calculate-icon-delete-icon-multiplication-icon-5d3a46888531f0.7270433015641002325456.jpg"
-              alt=""
-            /></button>
+                    width={"7"}
+                    src="https://banner2.cleanpng.com/20190725/pwz/kisspng-calculate-icon-delete-icon-multiplication-icon-5d3a46888531f0.7270433015641002325456.jpg"
+                    alt=""
+                  /></button>
                 </div>
               </div>
             ))}
         </div>
         <div>
-        <br></br>
-        <Link className="creatProduct"  to="/CreateProducts">Creat Product</Link>
-        <div>
-        <Sweetpagination
-            currentPageData={setCurrentPageData}
-            getData={productAllfilter}
-            dataPerPage={5}
-            navigation={true}
-            getStyle={"style-1"}
-          />
-        </div>
+          <br></br>
+          <Link className="creatProduct" to="/CreateProducts">Creat Product</Link>
+          <div>
+            <Sweetpagination
+              currentPageData={setCurrentPageData}
+              getData={productAllfilter}
+              dataPerPage={5}
+              navigation={true}
+              getStyle={"style-1"}
+            />
+          </div>
         </div>
       </div>
     </>

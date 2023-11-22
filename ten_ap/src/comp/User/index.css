@@ -55,8 +55,9 @@
 }
 .menu_index ul li{
     list-style: none;
-    width: 120px;
+    width: 150px;
     font-size: 15px;
+    margin-left: 20px;
     font-weight: bolder;
     font-family: 'Tahoma', sans-serif;
 }
