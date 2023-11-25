@@ -15,6 +15,48 @@ const Register2 = () => {
   const navigate = useNavigate();
   const handleOnSubmit = (e) => {
     e.preventDefault();
+
+    //validate inp
+    if(username === null || username === ""){
+      toast.error("User name Không được để trống")
+      return
+    }
+    if(username.length <= 2){
+      toast.error("Username Quá Ngắn")
+      return
+    }
+    if (username >= 20) {
+      toast.error("Username Quá Dài")
+      return
+    }
+    if(!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)){
+      toast.error("Password không hợp lệ")
+      return
+    }
+    if(fullname === null || fullname === ""){
+      toast.error("Fullname Không được để trống")
+      return
+    }
+    if(fullname.length <= 3){
+      toast.error("fullname Quá Ngắn")
+      return
+    }
+    if (fullname >= 40) {
+      toast.error("fullname Quá Dài")
+      return
+    }
+    if(dob === null || dob === ""){
+      toast.error("Dob Không được để trống")
+      return
+    }
+    if(phone === null || phone === ""){
+      toast.error(" Phone Không Được Để Trống")
+      return
+    }
+    if( phone.length < 9 || phone.length > 11){
+      toast.error("Phone Không Hợp Lệ")
+      return
+    }
     httpService
       .post("/api/auth/register", {
         body: { username, password, fullname, dob, phone },

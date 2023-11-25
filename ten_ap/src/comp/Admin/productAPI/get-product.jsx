@@ -67,7 +67,7 @@ const HomeProduct = () => {
           <label htmlFor="">description</label>
           <label className="items" htmlFor="">
             {" "}
-            <input type="text" placeholder="nhap vao day" onChange={(e) => setTextSeach(e.target.value)} />
+            <input type="text" placeholder="Tìm Kiếm Products" onChange={(e) => setTextSeach(e.target.value)} />
             {/* <select className="Selecter" onChange={(e) => setCategory(e.target.value)}>
               {data.map((item) => (
                 <option key={item.id} value={item._id}>
@@ -77,7 +77,7 @@ const HomeProduct = () => {
             </select> */}
           </label>
         </div>
-        <div className="">
+        <div className="products">
           {currentPageData &&
             currentPageData.length > 0 &&
             currentPageData.map((item) => (
@@ -97,11 +97,8 @@ const HomeProduct = () => {
                   <h4>{item.description}</h4>
                 </div>
                 <div className="product_item">
-                  <button className="delproduct" onClick={() => handledeleteproduct(item._id)}> <img
-                    width={"7"}
-                    src="https://banner2.cleanpng.com/20190725/pwz/kisspng-calculate-icon-delete-icon-multiplication-icon-5d3a46888531f0.7270433015641002325456.jpg"
-                    alt=""
-                  /></button>
+                  <button className="delproduct" onClick={() => handledeleteproduct(item._id)}> 
+                  <img width={"25px"} src="https://www.pngall.com/wp-content/uploads/5/Delete-PNG-Clipart.png" alt=""/></button>
                 </div>
               </div>
             ))}

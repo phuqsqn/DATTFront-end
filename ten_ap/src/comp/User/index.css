@@ -168,10 +168,10 @@ span{
     text-align: center;
 }
 .tieude{
-    font-family: 'Tahoma', sans-serif;
+    font-family:'Times New Roman', Times, serif;
     margin-left: 20px;
-    border-bottom: 3px solid black;
-    width: 150px;
+    width: 300px;
+    color: red;
 }
 .footer_hover{
     width: 100%;

@@ -134,14 +134,13 @@ const HomeCategory = () => {
                     </td>
                     <td>
                       <img className="categoryimg" src={item.img} alt=""
-
                       />
                     </td>
                     <td>
-                      <button onClick={() => handledeleteData(item._id)}>
-                        Delete
+                      <button className="edit_cate" onClick={() => handledeleteData(item._id)}>
+                      <img width={"25px"} src="https://www.pngall.com/wp-content/uploads/5/Delete-PNG-Clipart.png" alt=""/>
                       </button>
-                      <button onClick={() => {
+                      <button  onClick={() => {
                         setItemEdit(item);
                         setOpen(true)
                       }}>edit</button>

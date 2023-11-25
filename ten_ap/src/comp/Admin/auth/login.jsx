@@ -34,7 +34,7 @@ const LoginCT = () => {
         // Store data login
         storageService.set("access_token", data?.data?.jwt);
         storageService.set("role", data?.data?.role);
-      
+        storageService.set("account_id", data?.data?._id);
 
         // Sau khi login navigate ...
         if (data.data.role === "admin") {

@@ -1,3 +1,4 @@
+
 .sumtable{
     width: 100%;
     margin-left: 10px;
@@ -22,7 +23,8 @@
     display: flex;
     height: 30px;
     border: 1px solid rgb(194, 189, 189);
-    padding-top: 5px;
+    height: 60px;
+    padding-top: 30px;
 }
 .itemAc1{
     width: 150px;
@@ -55,8 +57,9 @@
 h4{
     width: 100px;
     color: rgb(0, 0, 0);
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 15px ;
+    font-family: 'Nunito', sans-serif;
 }
 .Creataccounts{
     text-decoration: none;
@@ -80,7 +83,7 @@ h4{
 }
 .Boxname{
     margin: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto Mono', monospace;
     color: red;
 }
 .inpedit{
@@ -111,9 +114,12 @@ h4{
     text-shadow: 0px 0px 8px purple;
 }
 .delaccount{
-    text-align: center;
+    
     position: absolute;
-    right: 100px;
-    margin-top: 2px;
-    border-radius: 100px;
+    right: 30px;
+    border: none;
+    background: none;
+}
+.accounts{
+    height: 450px;
 }

@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import httpService from "../service/http.service";
 import './product.css'
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const UserProducts = () => {
     const [product, setProduct] = useState([])
+    const navigate = useNavigate();
+    //navigate to Detail product
+    const handleClickProduct = (id_product) =>{
+        navigate (`/products/${id_product}`)
+    }
+
     const handleAddToCart = (item) => {
         // console.log(item)
         // console.log({
@@ -36,7 +43,7 @@ const UserProducts = () => {
                     {product.map((item) => (
                         <div className="item" key={item._id}>
                             <h3>{item.name}</h3>
-                            <h4> <img className="productimg" src={item.img} alt=""
+                            <h4> <img onClick={() => handleClickProduct(item._id)} className="productimg" src={item.img} alt=""
                             /></h4>
                             <h2>{item.price}</h2>
                             <h5 className="quantity">{item.description}</h5>

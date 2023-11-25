@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import httpService from "../../service/http.service";
 import { set } from 'react-hook-form';
 import Sweetpagination from "sweetpagination";
+import "./comment.css"
 
 const Comment = () => {
 const [comments , setcomments] = useState ([]);
@@ -22,7 +23,13 @@ useEffect(()=>{
     })
 },[isReload])
     return (<>
-             <div className="">
+      <div className="menuproduct">
+          <label htmlFor="">NHIỆM VỤ</label>
+          <label htmlFor="">NỘI DUNG</label>
+          <label htmlFor="">MÔ TẢ</label>
+          <label htmlFor="">MÔ TẢ</label>
+        </div>
+             <div className="comments">
           {currentPageData &&
             currentPageData.length > 0 &&
             currentPageData.map((item) => (
@@ -41,11 +48,15 @@ useEffect(()=>{
                 </div>
                
                 <div>
-                    <button onClick={() => handledeleteData(item._id)}>Delete</button>
+                    <button className="delcomment"
+                    onClick={() => handledeleteData(item._id)}>
+                    <img width={"25px"} src="https://www.pngall.com/wp-content/uploads/5/Delete-PNG-Clipart.png" alt=""/>
+                    </button>
                 </div>
               </div>
             ))}
-            <div>
+        </div>
+        <div>
         <Sweetpagination
             currentPageData={setCurrentPageData}
             getData={comments}
@@ -53,7 +64,6 @@ useEffect(()=>{
             navigation={true}
             getStyle={"style-1"}
           />
-        </div>
         </div>
     </>)
 }

@@ -41,3 +41,9 @@ table tr td{
     position: absolute;
     right: 640px;
 }
+.edit_cate{
+    position: absolute;
+    right: 30px;
+    background: none;
+    border: none;
+}

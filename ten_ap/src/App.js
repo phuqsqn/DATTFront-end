@@ -32,6 +32,7 @@ import CreateJobs from "./comp/Admin/job/creatJobs";
 import CartUse from "./comp/User/cart";
 import Comment from "./comp/Admin/comment/get-comment.jsx";
 import ProductIteam from "./comp/User/product_item.jsx";
+import ProductDetail from "./comp/User/productDetail.jsx";
 
 const store = createStore(allReducers);
 // Change -> update
@@ -131,6 +132,10 @@ function App() {
             <Route
               path="/Product"
               element={<ProductIteam/>}
+            />
+             <Route
+              path="/Products/:id"
+              element={<ProductDetail/>}
             />
           </Routes>
         </BrowserRouter>

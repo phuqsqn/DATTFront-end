@@ -117,7 +117,7 @@ const HomeAccount = () => {
           <label htmlFor="">SETTINGS</label>
         </div>
         {currentPageData && currentPageData.length > 0 && (
-          <div>
+          <div className="accounts">
             {currentPageData.map((item) => (
               <div className="tablemenu">
                 <div className="itemAc1">
@@ -142,11 +142,7 @@ const HomeAccount = () => {
                       handledeleteData(item._id);
                     }}
                   >
-                   <img
-              width={"7"}
-              src="https://banner2.cleanpng.com/20190725/pwz/kisspng-calculate-icon-delete-icon-multiplication-icon-5d3a46888531f0.7270433015641002325456.jpg"
-              alt=""
-            />
+              <img width={"25px"} src="https://www.pngall.com/wp-content/uploads/5/Delete-PNG-Clipart.png" alt=""/>
                   </button>
                   <button
                     onClick={() => {

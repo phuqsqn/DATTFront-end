@@ -23,8 +23,15 @@ const ProductIteam = () => {
   const [productAll, setProductALl] = useState([]);
   const [textSeach, setTextSeach] = useState("");
   const [isReload, setIsReload] = useState(false)
+  const [isSearch, setIsSearch] = useState(false)
 
-
+  const EnterSerch = (event) => {
+    console.log(event)
+    if (event.keyCode === 13) {
+      setIsSearch(!isSearch)
+      console.log("adasd")
+    }
+  }
   useEffect(() => {
     let newArray = [];
     for (let item of productAll) {
@@ -33,7 +40,8 @@ const ProductIteam = () => {
       }
     }
     setProductfilter(newArray)
-  }, [textSeach])
+
+  }, [isSearch])
 
 
   useEffect(() => {
@@ -107,7 +115,10 @@ const ProductIteam = () => {
           <li>TIN TỨC</li>
           <li>LIÊN HỆ</li>
         </ul>
-        <input className="sreach_product" type="text" placeholder="Tìm kiếm sản phẩm...." onChange={(e) => setTextSeach(e.target.value)} />
+        <input className="sreach_product" type="text" placeholder="Tìm kiếm sản phẩm...." onKeyDown={(e) => {
+          setTextSeach(e.target.value)
+          EnterSerch(e)
+        }} />
         <Link className="cart" to='/cart'><img
           width={"50px"}
           height={"50px"}
@@ -117,7 +128,7 @@ const ProductIteam = () => {
       </div>
       <div className="product_hot">
         <div className="product_hot_item">
-        {<UseProducts />}
+          {<UseProducts />}
         </div>
       </div>
       <div className="detail_index">
@@ -133,7 +144,7 @@ const ProductIteam = () => {
             }
           </ul>
           <div className="slider_name">
-              <ZoomSlideshow />
+            <ZoomSlideshow />
           </div>
         </div>
         <div className="right_product" >
