@@ -64,7 +64,7 @@ const HomeProduct = () => {
           <label htmlFor="">NAME</label>
           <label htmlFor="">IMG</label>
           <label htmlFor="">PRICE</label>
-          <label htmlFor="">description</label>
+          {/* <label htmlFor="">description</label> */}
           <label className="items" htmlFor="">
             {" "}
             <input type="text" placeholder="Tìm Kiếm Products" onChange={(e) => setTextSeach(e.target.value)} />
@@ -87,15 +87,14 @@ const HomeProduct = () => {
                 </div>
                 <div className="product_item">
                   <img className="categoryimg" src={item.img} alt=""
-
                   />
                 </div>
                 <div className="product_item">
                   <h4>{item.price}</h4>
                 </div>
-                <div className="product_item">
+                {/* <div className="product_item">
                   <h4>{item.description}</h4>
-                </div>
+                </div> */}
                 <div className="product_item">
                   <button className="delproduct" onClick={() => handledeleteproduct(item._id)}> 
                   <img width={"25px"} src="https://www.pngall.com/wp-content/uploads/5/Delete-PNG-Clipart.png" alt=""/></button>

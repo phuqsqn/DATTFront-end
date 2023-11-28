@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import httpService from "../../service/http.service";
 
-const CreateProduct = () => {
+const EditProduct = () => {
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState(null)
 
@@ -19,12 +19,12 @@ const CreateProduct = () => {
   } = useForm({ criteriaMode: "all" });
 
   const onSubmit = (data) => {
-    httpService.post(`/api/products/${categoryId}`, { body: data }).then(data => console.log(data))
+    httpService.patch(`/api/products/${categoryId}`, { body: data }).then(data => console.log(data))
   }
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1 style={{ color: 'rgb(255, 0, 170)' }}>CREAT ACCOUNT</h1>
+        <h1 style={{ color: 'rgb(255, 0, 170)' }}>edit ACCOUNT</h1>
 
         <select className="Selecter" onChange={(e) => setCategoryId(e.target.value)}>
           {categories.map((item) => (
@@ -43,6 +43,7 @@ const CreateProduct = () => {
             required: true,
           })}
         />
+        {errors.name && <span> không được để trống</span>}
 
         <br />
         <label>Img:</label>
@@ -54,6 +55,7 @@ const CreateProduct = () => {
             required: true,
           })}
         />
+        {errors.img && <span> không được để trống</span>}
         <br />
         <label>price</label>
         <br />
@@ -64,6 +66,7 @@ const CreateProduct = () => {
             required: true,
           })}
         />
+        {errors.price && <span> không được để trống</span>}
         <br />
         <label>description</label>
         <br />
@@ -74,6 +77,8 @@ const CreateProduct = () => {
             required: true,
           })}
         />
+
+        {errors.description && <span> không được để trống</span>}
         <br />
         <button className="creatOK" type="submit" >Creat</button>
         <div>
@@ -83,4 +88,4 @@ const CreateProduct = () => {
     </>
   );
 };
-export default CreateProduct;
+export default EditProduct;

@@ -7,12 +7,12 @@ import './product_item.css'
 import '../../img/z4815540120478_0c12c358ffeb3fd46e8d9cd93b71ba7c.jpg';
 import storageService from "../service/storage.service";
 import { useNavigate } from "react-router";
-
+import Sweetpagination from "sweetpagination";
 import { Link } from "react-router-dom";
 import ZoomSlideshow from "./slider/ZoomEffectSlider";
 import iteamProducts from './product-productIteam';
 import UseProducts from "./product-productIteam";
-
+import { toast } from 'react-toastify';
 ///fillter product
 
 
@@ -24,6 +24,29 @@ const ProductIteam = () => {
   const [textSeach, setTextSeach] = useState("");
   const [isReload, setIsReload] = useState(false)
   const [isSearch, setIsSearch] = useState(false)
+  const [currentPageData, setCurrentPageData] = useState([]); 
+
+  const handleClickProduct = (id_product) =>{
+    navigate (`/products/${id_product}`)
+}
+
+  const handleAddToCart = (item) => {
+    // console.log(item)
+    // console.log({
+    //     "id_product": item._id,
+    //     "quantity": 1
+    // })
+    httpService.post("/api/carts", {
+        body: {
+            "id_product": item._id,
+            "quantity": 1
+        }
+    }).then(data => {
+        toast.success("Add Thành Công")
+    }).catch(error => {
+        toast.error(error.message)
+    })
+}
 
   const EnterSerch = (event) => {
     console.log(event)
@@ -148,20 +171,30 @@ const ProductIteam = () => {
           </div>
         </div>
         <div className="right_product" >
-          {productfilter && productfilter.length > 0 && (
+          {currentPageData && currentPageData.length > 0 && (
             <div className="item_product">
-              {productfilter.map((item) => (
+              {currentPageData.map((item) => (
                 <div className="item" key={item._id}>
                   <h3>{item.name}</h3>
-                  <h4> <img className="categoryimg" src={item.img} alt=""
+                  <h4> <img onClick={() => handleClickProduct(item._id)} className="img_product" src={item.img} alt=""
                   /></h4>
                   <h2>{item.price}</h2>
                   <h5>{item.description}</h5>
-                  {/* <button onClick={() => handleAddToCart(item)}>add Cart</button> */}
+                  <button className="add_cart" onClick={() => handleAddToCart(item)}>+ Add Cart</button>
                 </div>
               ))}
             </div>
           )}
+          <div>
+          <br />
+        <Sweetpagination
+            currentPageData={setCurrentPageData}
+            getData={productfilter}
+            dataPerPage={8}
+            navigation={true}
+            getStyle={"style-1"}
+          />
+        </div>
         </div>
       </div>
       <br></br>

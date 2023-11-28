@@ -35,7 +35,7 @@
 
 .right_product {
     width: 80%;
-    height: 750px;
+    height: 850px;
 }
 
 .slider_name {
@@ -54,8 +54,8 @@
 }
 
 .right_product>.item_product>.item {
-    width: 17%;
-
+    width: 20%;
+    padding: 5px;
 }
 .product_hot{
     width: 100%;
@@ -75,4 +75,21 @@
     position: absolute;
     top: 68px;
     right: 150px;    
+}
+.add_cart{
+    margin-top: 5px;
+    background: none;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.add_cart:hover{
+    background-color: red;
+    color: white;
+}
+.img_product{
+    width: 90px;
+    
 }

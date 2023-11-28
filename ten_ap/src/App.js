@@ -33,6 +33,9 @@ import CartUse from "./comp/User/cart";
 import Comment from "./comp/Admin/comment/get-comment.jsx";
 import ProductIteam from "./comp/User/product_item.jsx";
 import ProductDetail from "./comp/User/productDetail.jsx";
+import EditProduct from "./comp/Admin/productAPI/edit.jsx";
+
+
 
 const store = createStore(allReducers);
 // Change -> update
@@ -136,6 +139,10 @@ function App() {
              <Route
               path="/Products/:id"
               element={<ProductDetail/>}
+            />
+           <Route
+              path="/editProduct"
+              element={<EditProduct/>}
             />
           </Routes>
         </BrowserRouter>

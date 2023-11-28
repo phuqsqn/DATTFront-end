@@ -24,10 +24,9 @@ useEffect(()=>{
 },[isReload])
     return (<>
       <div className="menuproduct">
-          <label htmlFor="">NHIỆM VỤ</label>
           <label htmlFor="">NỘI DUNG</label>
-          <label htmlFor="">MÔ TẢ</label>
-          <label htmlFor="">MÔ TẢ</label>
+          <label htmlFor="">SẢN PHẨM</label>
+          <label htmlFor="">ACCOUNT</label>
         </div>
              <div className="comments">
           {currentPageData &&
@@ -36,9 +35,6 @@ useEffect(()=>{
               <div className="Sum_product" key={item._id}>
                 <div className="product_item">
                   <h4>{item.content}</h4>
-                </div>
-                <div className="product_item">
-                  <h4>{item.start}</h4>
                 </div>
                 <div className="product_item">
                   <h4>{item.product}</h4>
@@ -67,4 +63,4 @@ useEffect(()=>{
         </div>
     </>)
 }
-export default Comment;
+export default Comment; 

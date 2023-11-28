@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 const UseProducts = () => {
     const [product, setProduct] = useState([])
+    
     const handleAddToCart = (item) => {
         // console.log(item)
         // console.log({
@@ -42,6 +43,7 @@ const UseProducts = () => {
                             <h1>{item.price}</h1>
                             <h5 className="quantity">{item.description}</h5>
                         </div>
+                        
                     ))}
                 </div>
             )}

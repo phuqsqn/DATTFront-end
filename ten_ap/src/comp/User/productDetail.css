@@ -1,0 +1,129 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.text_product{
+    width: 78%;
+    background-color: white;
+    margin: 0px auto;
+}
+.sum_detail{
+    display: flex;
+    width: 90%;
+    height: 450px;
+    margin: 0px auto;
+}
+.detail_left{
+    width: 35%;
+    text-align: center;
+    padding: 20px;
+}
+.detail_right{
+    padding-left: 10px;
+    width: 45%;
+}
+.detail_right h2{
+    font-family: 'Tahoma', sans-serif;
+    font-weight: bold;
+    color: #2e3553;
+}
+.detail_right h4{
+    font-size: 30px;
+    display: inline-block;
+    color: #ff2d37;
+    font-weight: 700;
+    margin: 0px;
+    margin-left: 0px;
+    width: 200px;
+ }
+ .add > .add_cart{
+    width: 200px;
+    background: #ff2d37;
+    color: white;
+    margin-top: 20px;
+    border-radius: 0px;
+    padding: 10px;
+ }
+ .detail_left >img{
+    border: 1px solid #ebebeb;
+    background-color: rgb(212, 212, 212);
+ }
+.descript{
+    width: 600px;
+    border-radius: 5px;
+    height: 283px;
+    font-family: 'Tahoma', sans-serif;
+    margin: 0px
+}
+.descript h5{
+    font-weight: normal;
+    font-size: 15px;
+}
+.detail_footer{
+    width: 90%;  
+    height: 500px;
+    margin: 0px auto;
+    border-radius: 5px;
+    padding: 5px;
+    background: rgb(255, 255, 255);
+}
+.show_comment{
+   width: 100%;
+    margin: 10px auto;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+.product_detail > h4{
+    width: 100%;
+    height: 50px;
+    margin: 20px 10px 10px 0px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.product_detail > h3{
+    margin: 0px;
+    font-size: 15px;
+    color: rgb(72, 216, 0);
+    margin: 20px 10px 10px 0px;
+}
+.Creat_cart{
+    display: flex;
+}
+.name_comment{
+    width: 75%;
+    margin: 0px auto;
+    text-align: center;
+    font-family: 'Tahoma', sans-serif;
+    
+}
+.name_comment h1{
+    font-size: 25px;
+    padding: 5px;
+    color: red;
+}
+.imgdetail_img{
+    width: 100%;
+    height: 250px;
+}
+.creat_comment{
+    width: 80%;
+    margin: 0px auto;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    height: 150px;
+}
+.inp_comment{
+    width: 85%;
+    margin: 10px;
+    height: 50px;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 10px;
+}
+.enter_comment{
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-weight: bolder;
+    background: green;
+    border: none;
+    border-radius: 5px;
+}
