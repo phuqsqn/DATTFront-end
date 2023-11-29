@@ -5,6 +5,7 @@ import { Button } from '@mui/material/Button';
 import storageService from "../service/storage.service";
 import './productDetail.css'
 import { useNavigate } from "react-router";
+import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
     const [product, setProduct] = useState({})
@@ -12,6 +13,24 @@ const ProductDetail = () => {
     const [commentContent, setCommentContent] = useState("")
     const [isReload, setisReload] = useState(false)
     const navigate = useNavigate();
+
+    const handleAddToCart = (item) => {
+        // console.log(item)
+        // console.log({
+        //     "id_product": item._id,
+        //     "quantity": 1
+        // })
+        httpService.post("/api/carts", {
+            body: {
+                "id_product": item._id,
+                "quantity": 1
+            }
+        }).then(data => {
+            toast.success("Add Thành Công")
+        }).catch(error => {
+            toast.error(error.message)
+        })
+    }
 
     const handleLogOut = () => {
         storageService.remove("role")
@@ -109,7 +128,7 @@ const ProductDetail = () => {
                         <h2>{product?.name}</h2>
                         <h4>{product?.price}</h4>
                         <div className="add">
-                            <button className="add_cart">+ Add Cart</button>
+                        <button className="add_cart" onClick={() => handleAddToCart(product._id)}>+ Add Cart</button>
                         </div>
                         <div className="descript">
                             <h5 className="quantity">{product?.description}</h5>

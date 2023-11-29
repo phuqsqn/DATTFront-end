@@ -45,11 +45,18 @@ const store = createStore(allReducers);
 function App() {
   const [isReload, setIsReload] = useState(false);
   const [itemEdit, setItemEdit] = useState(null);
+
+
+
   const creatData = async (data) => {
     const response = await httpService.post("/api/accounts", { body: data });
   };
-  const createCT = async (data) => {
-    const response = await httpService.post("/api/categories", { body: data });
+  const createCT = async ( data) => {
+    data.e.preventDefault();
+    const formData = new FormData();
+    formData.append('img', data.img);
+    formData.append('name', data.name);
+    const response = await httpService.post("/api/categories", { body: formData });
   };
 
   const updateData = async (data) => {
@@ -116,7 +123,7 @@ function App() {
               path="/CreatAccounts"
               element={<CreateData onSubmit={handleCreat} data={itemEdit} />}
             />
-              <Route
+            <Route
               path="/CreateProducts"
               element={<CreateProduct onSubmit={handleCreat} data={itemEdit} />}
             />
@@ -124,25 +131,25 @@ function App() {
               path="/CreatCategories"
               element={<CreateCT onSubmit={handleCreatCT} data={itemEdit} />}
             />
-             <Route
+            <Route
               path="/CreatJob"
               element={<CreateJobs onSubmit={handleCreat} data={itemEdit} />}
             />
-             <Route
+            <Route
               path="/cart"
-              element={<CartUse/>}
+              element={<CartUse />}
             />
             <Route
               path="/Product"
-              element={<ProductIteam/>}
+              element={<ProductIteam />}
             />
-             <Route
+            <Route
               path="/Products/:id"
-              element={<ProductDetail/>}
+              element={<ProductDetail />}
             />
-           <Route
+            <Route
               path="/editProduct"
-              element={<EditProduct/>}
+              element={<EditProduct />}
             />
           </Routes>
         </BrowserRouter>

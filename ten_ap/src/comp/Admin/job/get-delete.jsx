@@ -99,9 +99,9 @@ const HomeJob = () => {
                 </div>
               </div>
             ))}
-            <br></br>
+            <br />
         </div>
-        <Link className="Creatjob" to="/Createjobs">Creat Job</Link>
+        <Link className="Creatjob" to="/CreatJob">Creat Job</Link>
         <div>
         <Sweetpagination
             currentPageData={setCurrentPageData}

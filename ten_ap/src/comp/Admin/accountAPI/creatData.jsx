@@ -99,7 +99,7 @@ const CreateData = (props) => {
           <button className="creatOK" type="submit">
             Creat
           </button>
-          <Link className="comeback" to="/Admin/accounts">- Come back Products -</Link>
+          <Link className="comeback" to="/Admin/accounts">- Come back Accounts -</Link>
         </form>
       </div>
     </>

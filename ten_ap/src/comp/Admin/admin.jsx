@@ -38,31 +38,31 @@ const Admin = () => {
           <div className="left__bottom">
             <div className="menu_left">
               <img src="https://cdn2.iconfinder.com/data/icons/speech-bubbles-filled/48/Dots_Bubble_Filled-512.png" alt="" /> 
-              <h2><Link className="LinkAdmin" to="/Admin/comments">Comment</Link></h2>
+              <h2><Link className="LinkAdmin" to="/Admin/comments">COMMENTS</Link></h2>
             </div>
 
             <div className="menu_left">
               <img src="https://th.bing.com/th/id/R.f91b60a4cbe2fa5fb7c8711e33ceacee?rik=QcHmCIK%2bui2sbg&pid=ImgRaw&r=0" alt="" /> 
-              <h2><Link className="LinkAdmin" to="/Admin/job">Job Accounts</Link></h2>
+              <h2><Link className="LinkAdmin" to="/Admin/job">JOB ACCOUNTS</Link></h2>
             </div>
             <div className="menu_left">
 
               <img src="https://th.bing.com/th/id/R.b34075687db20d542cb7f1af23e9c04e?rik=%2f0jixRloKqk2FQ&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_319029.png&ehk=o%2bYFk7whOmq71tb%2fSNoDAh%2baWrjqq5Y%2bKwmrnLxfGXk%3d&risl=&pid=ImgRaw&r=0" alt="" />
-              <h2><Link className="LinkAdmin" to="/Admin/accounts">Accounts</Link></h2>
+              <h2><Link className="LinkAdmin" to="/Admin/accounts">ACCOUNTS</Link></h2>
             </div>
             <div className="menu_left">
               <img
                 src="https://www.pngkey.com/png/full/335-3350331_home-project-hobbies-education-project-management-icon.png"
                 alt=""
               />
-              <h2><Link className="LinkAdmin" to={"/Admin/categories"}>ProJect</Link></h2>
+              <h2><Link className="LinkAdmin" to={"/Admin/categories"}>CATEGORIES</Link></h2>
             </div>
             <div className="menu_left">
               <img
                 src="https://uxwing.com/wp-content/themes/uxwing/download/business-professional-services/product-icon.png"
                 alt=""
               />
-              <h2><Link className="LinkAdmin" to="/Admin/product">Products</Link></h2>
+              <h2><Link className="LinkAdmin" to="/Admin/product">PRODUCTS</Link></h2>
             </div>
           </div>
         </div>
