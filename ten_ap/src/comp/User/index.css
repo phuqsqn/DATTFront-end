@@ -13,10 +13,11 @@
 
 .menu_header{
     display: flex;
-    width: 250px;
+    width: 350px;
     position: absolute;
     right: 10px;
     top: 7px;
+    text-align: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 }
 .menu_header2{
@@ -33,14 +34,26 @@
     width: 80px;
 }
 .item_productt{
-    width: 150px;
+    width: 80px;
     text-align: center;
     color: rgb(255, 255, 255);
     margin: 0px;
 }
-
+.item_auth{
+    width: 100px;
+    text-align: center;
+    color: rgb(255, 0, 0);
+    margin: 0px;
+    text-align: center;
+    border: 1px solid red;
+}
+.item_auth h5{
+    margin: 5px;
+}
 .item_productt h5{
     margin: 5px;
+    width: 80px;
+    text-align: center;
 }
 .menu_index{
     width: 100%;
@@ -69,11 +82,8 @@
     text-decoration: none;
     font-size: 13px;
     color: white;
-    border: 1px solid white;
-    padding: 5px;
     border-radius: 5px;
 }
-
 .hover_logo{
     width: 100%;
     height: 150px;

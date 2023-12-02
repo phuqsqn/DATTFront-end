@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, NavLink, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import './creatCate.css'
+import { dark } from "@mui/material/styles/createPalette";
 
 
 
@@ -14,13 +15,17 @@ const CreateCT = (props) => {
 
 
   const handleSubmit = (e) => {
+    e.preventDefaut()
+    console.log({
+      name: name,
+      img: image,
+    })
     props.onSubmit({
       name: name,
       img: image,
-      e
-    });
-    // navagite('/Admin/categories')
-
+    }).then(data=>{
+      navagite('/Admin/categories')
+    })
   };
 
   return (

@@ -64,13 +64,18 @@ const Admin = () => {
               />
               <h2><Link className="LinkAdmin" to="/Admin/product">PRODUCTS</Link></h2>
             </div>
+            <div className="menu_left">
+              <img
+                src="https://png.pngtree.com/png-clipart/20190630/original/pngtree-vector-invoice-vector-icon-png-image_4171372.jpg"
+                alt=""
+              />
+              <h2><Link className="LinkAdmin" to="/admin/bills">BILL</Link></h2>
+            </div>
           </div>
         </div>
         <div className="Sum__right">
           <div className="right__Top">
             <h1 className="admin">ADMIN</h1>
-            <input className="admin__inp" type="text" placeholder="Tên, Sản phẩm cửa hàng..." />
-            <button className="serch">TÌM KIẾM</button>
             <img src="" alt="" />
           </div>
           <div className="right__bottom"> <Outlet /></div>

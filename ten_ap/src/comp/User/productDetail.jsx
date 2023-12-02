@@ -12,9 +12,24 @@ const ProductDetail = () => {
     const [comments, setComments] = useState([])
     const [commentContent, setCommentContent] = useState("")
     const [isReload, setisReload] = useState(false)
+    const [listAccount, setListAccount] = useState([])
     const navigate = useNavigate();
 
-    const handleAddToCart = (item) => {
+    useEffect(() => {
+        httpService.get('/api/accounts').then((data) => {
+            setListAccount(data.data)
+            console.log(data.data)
+        })
+    }, [])
+    const getAccountName = (id) => {
+        for (let i = 0; i < listAccount.length; i++) {
+            if (listAccount[i]._id === id) {
+                return listAccount[i].fullname
+            }
+        }
+        return id;
+    }
+    const handleAddToCart = (id) => {
         // console.log(item)
         // console.log({
         //     "id_product": item._id,
@@ -22,7 +37,7 @@ const ProductDetail = () => {
         // })
         httpService.post("/api/carts", {
             body: {
-                "id_product": item._id,
+                "id_product": id,
                 "quantity": 1
             }
         }).then(data => {
@@ -104,7 +119,7 @@ const ProductDetail = () => {
                     <li><Link to="/">TRANG CHỦ</Link></li>
                     <li><Link to="/product">SẢN PHẨM</Link></li>
                     <li>TIN TỨC</li>
-                    <li>THỐNG KÊ</li>
+                    <li><Link to="/statistical">THỐNG KÊ</Link></li>
                 </ul>
                 <Link className="cart" to='/cart'><img
                     width={"50px"}
@@ -117,53 +132,53 @@ const ProductDetail = () => {
                 <img className="imgdetail_img" src="https://img4.thuthuatphanmem.vn/uploads/2020/12/25/anh-bia-bo-my-pham-fob_094444611.jpg" alt=""
                 />
             </div>
-            <div style={{background:"rgb(212, 212, 212)"}} className="Sumproducts">
+            <div style={{ background: "rgb(212, 212, 212)" }} className="Sumproducts">
                 <div className="text_product">
-                <div className="sum_detail">
-                    <div className="detail_left">
-                        <img width={"350px"} className="" src={product?.img} alt=""
-                        />
+                    <div className="sum_detail">
+                        <div className="detail_left">
+                            <img width={"350px"} className="" src={product?.img} alt=""
+                            />
+                        </div>
+                        <div className="detail_right">
+                            <h2>{product?.name}</h2>
+                            <h4>{product?.price}</h4>
+                            <div className="add">
+                                <button className="add_cart" onClick={() => handleAddToCart(product._id)}>+ Add Cart</button>
+                            </div>
+                            <div className="descript">
+                                <h5 className="quantity">{product?.description}</h5>
+                            </div>
+
+                        </div>
                     </div>
-                    <div className="detail_right">
-                        <h2>{product?.name}</h2>
-                        <h4>{product?.price}</h4>
-                        <div className="add">
-                        <button className="add_cart" onClick={() => handleAddToCart(product._id)}>+ Add Cart</button>
-                        </div>
-                        <div className="descript">
-                            <h5 className="quantity">{product?.description}</h5>
-                        </div>
+                    <div className="name_comment">
+                        <h1>Comment Khách Hàng</h1>
+                        <hr />
+                    </div>
+                    <div className="detail_footer">
+                        {comments &&
+                            comments.length > 0 &&
+                            comments.map((item) => (
+                                <div className="show_comment" key={item._id}>
+                                    <div className="product_detail">
+                                        <h3>{getAccountName(item.account)}</h3>
+                                    </div>
+                                    <div className="product_detail">
+                                        <h4>{item.content}</h4>
+                                    </div>
+                                </div>
+
+                            ))}
 
                     </div>
-                </div>
-                <div className="name_comment">
-                    <h1>Comment Khách Hàng</h1>
-                    <hr />
-                </div>
-                <div className="detail_footer">
-                    {comments &&
-                        comments.length > 0 &&
-                        comments.map((item) => (
-                            <div className="show_comment" key={item._id}>
-                                <div className="product_detail">
-                                    <h3>{item.account}</h3>
-                                </div>
-                                <div className="product_detail">
-                                    <h4>{item.content}</h4>
-                                </div>
-                            </div>
-                           
-                        ))}
-                       
-                </div>
-               
-                <div className="creat_comment">
-                    <hr />
-                    <form onSubmit={handleOnSubmit}>
-                        <input className="inp_comment" onChange={e => setCommentContent(e.target.value)} value={commentContent} type="text" />
-                        <button className="enter_comment" type="submit">Enter</button>
-                    </form>
-                </div>
+
+                    <div className="creat_comment">
+                        <hr />
+                        <form onSubmit={handleOnSubmit}>
+                            <input className="inp_comment" onChange={e => setCommentContent(e.target.value)} value={commentContent} type="text" />
+                            <button className="enter_comment" type="submit">Enter</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <h2 className="tieude">ĐỐI TÁC</h2>

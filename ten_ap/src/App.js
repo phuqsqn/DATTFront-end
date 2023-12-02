@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import "./App.css";
 // import Car from "./comp/Car";
-import Counter from "./comp/Counter";
-import Bai2 from "./comp/bai2.js";
-import TodoApp from "./comp/todo/todo";
-import Todo from "./comp/todo2";
+// import Counter from "./comp/Counter";
+// import Bai2 from "./comp/bai2.js";
+// import TodoApp from "./comp/todo/todo";
+// import Todo from "./comp/todo2";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import CounterApp from "./comp/counter/counteapp";
@@ -27,13 +27,17 @@ import Abc from "./comp/Admin/productAPI/creat-product";
 import HomeJob from "./comp/Admin/job/get-delete";
 import storageService from "./comp/service/storage.service";
 import CreateProduct from "./comp/Admin/productAPI/creat-product";
-
 import CreateJobs from "./comp/Admin/job/creatJobs";
 import CartUse from "./comp/User/cart";
 import Comment from "./comp/Admin/comment/get-comment.jsx";
 import ProductIteam from "./comp/User/product_item.jsx";
 import ProductDetail from "./comp/User/productDetail.jsx";
 import EditProduct from "./comp/Admin/productAPI/edit.jsx";
+import Statistical from "./comp/User/Statistical-iteam.jsx";
+import StatisticalLayout from "./comp/User/Statistical.jsx";
+import Information from "./comp/User/Information.jsx";
+import HomeBill from "./comp/Admin/bill/homeBill.jsx";
+// import { useNavigate } from "react-router-dom";
 
 
 
@@ -51,12 +55,12 @@ function App() {
   const creatData = async (data) => {
     const response = await httpService.post("/api/accounts", { body: data });
   };
-  const createCT = async ( data) => {
-    data.e.preventDefault();
+  const createCT = async (data) => {
     const formData = new FormData();
     formData.append('img', data.img);
     formData.append('name', data.name);
-    const response = await httpService.post("/api/categories", { body: formData });
+    const response = await httpService.post("/api/categories", { body: formData })
+    return response;
   };
 
   const updateData = async (data) => {
@@ -113,6 +117,7 @@ function App() {
               <Route path="/Admin/product" index element={<HomeProduct />} />
               <Route path="/Admin/job" index element={<HomeJob />} />
               <Route path="/Admin/comments" index element={<Comment />} />
+              <Route path="/Admin/bills" index element={<HomeBill />} />
               <Route
                 path="/Admin/categories"
                 index
@@ -150,6 +155,14 @@ function App() {
             <Route
               path="/editProduct"
               element={<EditProduct />}
+            />
+            <Route
+              path="/information/:id"
+              element={<Information />}
+            />
+            <Route
+              path="/statistical"
+              element={<StatisticalLayout />}
             />
           </Routes>
         </BrowserRouter>

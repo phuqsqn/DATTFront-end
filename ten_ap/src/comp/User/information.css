@@ -1,0 +1,42 @@
+ .Sum_Statis{
+    width: 600px;
+    box-shadow: 0px 0px 10px gray;
+    height: 350px;
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    left: 30%;
+    top: 100px;
+ }
+ .Ho_So{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    color: red;
+ }
+ .Sum_hoso{
+    width: 100%;
+    background :linear-gradient(rgb(253, 234, 255), rgb(248, 181, 255));;
+    height: 730px;
+
+ }
+ .tieude2{
+    font-size: 18px;
+    font-weight: bold;
+ }
+ .Sum_Statis > h3{
+    width: 500px;
+    padding:5px;
+    font-size: 18px;
+ }
+ .OnlickEdit{
+    margin-left: 11px;
+    border: none;
+    padding: 5px;
+    background: none;
+    color: red;
+    font-weight: bolder;
+ }
+ .OnlickEdit:hover{
+    background: pink;
+    color: rgb(255, 0, 0);
+ }

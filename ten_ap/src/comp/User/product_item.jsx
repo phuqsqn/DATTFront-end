@@ -136,7 +136,7 @@ const ProductIteam = () => {
           <li><Link to="/">TRANG CHỦ</Link></li>
           <li>SẢN PHẨM</li>
           <li>TIN TỨC</li>
-          <li>LIÊN HỆ</li>
+          <li><Link to="/statistical">THỐNG KÊ</Link></li>
         </ul>
         <input className="sreach_product" type="text" placeholder="Tìm kiếm sản phẩm...." onKeyDown={(e) => {
           setTextSeach(e.target.value)

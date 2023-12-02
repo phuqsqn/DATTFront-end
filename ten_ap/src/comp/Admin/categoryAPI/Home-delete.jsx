@@ -49,9 +49,11 @@ const HomeCategory = () => {
   };
 
   const deleteData = async (id) => {
-    const response = await axios.delete(
-      `http://localhost:5000/api/categories/${id}`
-    );
+    const response = await httpService.delete(
+      `/api/categories/${id}`
+    ).then(data =>{
+      setIsReload(!isReload)
+    })
   };
 
   const creatData = async (data) => {

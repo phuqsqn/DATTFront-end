@@ -57,7 +57,7 @@ const HomeAccount = () => {
 
   const deleteData = async (id) => {
     const response = await httpService.delete(
-      `http://localhost:5000/api/accounts/${id}`
+      `/api/accounts/${id}`
     );
   };
 
